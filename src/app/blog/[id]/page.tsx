@@ -7,6 +7,7 @@ import { headers } from 'next/headers';
 import type { BlogPost } from '@/types/blog';
 import LikeButton from '@/components/LikeButton';
 import { FaArrowLeft } from 'react-icons/fa';
+import Comments from '@/components/Comments';
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -87,6 +88,8 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
                     )}
                 </div>
                 <BlogContent content={post.content} />
+
+                <Comments postId={resolvedParams.id} />
             </article>
         </main>
     );
